@@ -17,6 +17,7 @@ routers.get('/students', (req, res) => {
     })
 })
 
+// Возвращает всю таблицу announcements
 routers.get('/announcements', (req, res) => {
     db.query(`SELECT * FROM announcements`, (err, data) => {
         if (err) {
@@ -27,6 +28,7 @@ routers.get('/announcements', (req, res) => {
     })
 })
 
+// Возвращает всю таблицу teachers
 routers.get('/teachers', (req, res) => {
     db.query(`SELECT * FROM teachers`, (err, data) => {
         if (err) {
@@ -37,6 +39,7 @@ routers.get('/teachers', (req, res) => {
     })
 })
 
+// Возвращает расписание звонков
 routers.get('/calls_schedule', (req, res) => {
     db.query(`SELECT * FROM call_schedule`, (err, data) => {
         if (err) {
@@ -47,6 +50,7 @@ routers.get('/calls_schedule', (req, res) => {
     })
 })
 
+// Возвращает всё необходимое для таблицы списка классов
 routers.get('/classes', (req, res) => {
     db.query(`SELECT class_id, class_name, full_name AS teacher_name, description
               FROM classes c INNER JOIN teachers t
