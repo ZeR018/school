@@ -162,7 +162,7 @@ routers.get('/schedule/:id', (req, res) => {
             return;
         }
 
-        // Делаем запрос на получение всего домашнего задания этого класса
+        // Делаем запрос на получение всего расписания этого класса
         db.query(`SELECT schedule_id, date, schedule_num, classroom_num, 
                     full_name AS teacher, name AS subject FROM schedule s 
                   INNER JOIN teachers t ON s.teacher_id = t.teacher_id 
