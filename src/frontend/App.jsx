@@ -10,6 +10,7 @@ import ScheduleTab from './Tabs/ScheduleTab';
 import HomeworkTab from './Tabs/HomeworkTab';
 import AboutSchoolTab from './Tabs/AboutSchoolTab';
 import OtherTab from './Tabs/OtherTab';
+import { Link } from 'react-router-dom';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -59,11 +60,11 @@ function App() {
       </Box>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Оценки" {...a11yProps(0)} />
-          <Tab label="Расписание" {...a11yProps(1)} />
-          <Tab label="Домашние задания" {...a11yProps(2)} />
-          <Tab label="Дополнительно" {...a11yProps(3)} />
-          <Tab label="О школе" {...a11yProps(4)} />
+          <Tab label={<Link to={'marks'} >Оценки</Link>} {...a11yProps(0)} />
+          <Tab label={<Link to={'schedule'} >Расписание</Link>} {...a11yProps(1)} />
+          <Tab label={<Link to={'homework'} >Домашние задания</Link>}{...a11yProps(2)} />
+          <Tab label={<Link to={'other'} >Дополнительно</Link>} {...a11yProps(3)} />
+          <Tab label={<Link to={'announcements'} >О школе</Link>} {...a11yProps(4)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
